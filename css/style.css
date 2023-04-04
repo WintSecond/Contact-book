@@ -1,0 +1,169 @@
+.contacts__item {
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.item__info a {
+    font-size: 18px;
+    font-weight: 600;
+    color: coral;
+    text-decoration: none;
+}
+
+.item__action {
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    padding: 5px;
+    border: 2px solid;
+    border-radius: 5px;
+
+}
+
+.item__action svg {
+    width: 70%;
+    height: auto;
+}
+
+.item__action.item__remove {
+    border: 2px solid #f44336;
+}
+
+.item__action.item__remove svg path {
+    fill: #f44336;
+}
+
+.item__action.item__edit {
+    border: 2px solid #ff9800;
+}
+
+.item__action.item__edit svg path {
+    fill: #ff9800;
+}
+
+.contacts__add {
+    height: 100px;
+    width: 100%;
+    border: 2px dashed rgb(76, 175, 80);
+    background: rgb(76, 175, 80, .1);
+    border-radius: 5px;
+    font-size: 21px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.wrapper {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup__add.wrapper {
+    background-color: #76b852a3;
+}
+
+.popup__edit.wrapper {
+    background-color: #ff9800a3;
+}
+
+.popup__add.wrapper.active,
+.popup__edit.wrapper.active {
+    display: flex;
+}
+
+.popup__add.wrapper .content,
+.popup__edit.wrapper .content {
+    background: white;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    padding: 30px;
+}
+
+.content__bottom-close {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.popup-close {
+    background: #FFFFFF;
+}
+
+.popup-close:hover {
+    background: #bbbbbb5e;
+}
+
+
+.content h3 {
+    text-align: center;
+}
+
+.content p {
+    margin-bottom: 2px;
+}
+
+.content__name input,
+.content__tel input {
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.popup__add.wrapper .button,
+.popup__edit.wrapper .button {
+    text-transform: uppercase;
+    outline: 0;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+.content_add.button {
+    background: #4CAF50;
+}
+
+.content_add.button:hover {
+    background: #43A047;
+}
+
+.content_edit.button {
+    background: #ff9800;
+}
+
+.content_edit.button:hover {
+    background: #dd8501;
+}
+
+#search {
+    width: 100%;
+    height: 50px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 0 10px;
+    margin: 30px 0 0 0;
+    outline: none;
+    font-size: 16px;
+}
