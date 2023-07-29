@@ -75,7 +75,7 @@ $(() => {
             type: 'POST',
             caches: false,
             data: [
-                {name: 'id', value: id}
+                { name: 'id', value: id }
             ],
         }).done(function (response) {
             const r = JSON.parse(response);
@@ -98,10 +98,8 @@ $(() => {
 
         let newItem = $(this).serializeArray();
 
-        console.log(newItem);
-
         $.ajax({
-            url: 'contacts.php',
+            url: 'addContact.php',
             type: 'POST',
             caches: false,
             data: newItem,
@@ -117,6 +115,39 @@ $(() => {
 
         $(this)[0].reset();
         $('.popup__add.wrapper').removeClass('active');
+
+    });
+});
+
+
+
+// Редактирование контакта
+$(() => {
+    $(document).on('click', '#editButton', function () {
+        $('.popup__edit.wrapper').addClass('active');
+
+        const id = +$(this).data('id');
+        $('.popup__edit form input[name="id"]').val(id);
+
+        $.ajax({
+            url: 'editContact.php',
+            type: 'POST',
+            caches: false,
+            data: [
+                { name: 'id', value: id }
+            ],
+        }).done(function (response) {
+            const r = JSON.parse(response);
+
+            if (!r.error) { 
+                alert('Контакт обновлён');
+            } else {
+                alert(r.message);
+            }
+        });
+
+        $(this)[0].reset();
+        $('.popup__edit.wrapper').removeClass('active');
 
     });
 });

@@ -9,44 +9,6 @@ function prnt($array)
 $contacts = json_decode(file_get_contents('contacts.json'), true);
 $contacts = $contacts['contacts'];
 
-if (isset($_POST['name']) && isset($_POST['phone'])) {
-    $newContact = [
-        'id' => $_POST['id'],
-        'name' => $_POST['name'],
-        'phone' => $_POST['phone'],
-    ];
-    $contacts = json_decode(file_get_contents('contacts.json'), true);
-    $contacts['contacts'][] = $newContact;
-    if (file_put_contents('contacts.json', json_encode($contacts))) {
-        echo json_encode([
-            'error' => 0
-        ]);
-    } else {
-        echo json_encode([
-            'error' => 1,
-            'message' => 'Ошибка записи файла'
-        ]);
-    }
-}
-
-// function addContact()
-// {
-//     if ($_POST['n1'] != '' && $_POST['n2'] != '') {
-//     }
-// }
-
-// if (isset($_POST['submit'])) {
-//     $file = "contacts.json";
-//     $arr = array(
-//         'id'       => $_POST['id'],
-//         'name'     => $_POST['name'],
-//         'email'    => $_POST['email'],
-//         'phone'    => $_POST['phone'],
-//     );
-//     $json_string = json_encode($arr, JSON_UNESCAPED_UNICODE);
-//     file_put_contents($file, '[' . $json_string . ']', FILE_APPEND);
-// }
-
 ?>
 
 <?php if(!isset($_POST['name']) && !isset($_POST['phone'])) { ?>
@@ -120,7 +82,7 @@ if (isset($_POST['name']) && isset($_POST['phone'])) {
     </section>
 
     <div class="popup__edit wrapper">
-        <form action="contacts.php" method="POST" class="content">
+        <form action="editContact.php" method="POST" class="content">
             <input type="hidden" name="id" value="">
             <div class="content__bottom-close">
                 <button type="button" class="popup-close">✕</button>
@@ -139,7 +101,7 @@ if (isset($_POST['name']) && isset($_POST['phone'])) {
     </div>
 
     <div class="popup__add wrapper">
-        <form action="contacts.php" method="POST" class="content">
+        <form action="addContact.php" method="POST" class="content">
             <input type="hidden" name="id" id="addID">
             <div class="content__bottom-close">
                 <button type="button" class="popup-close">✕</button>

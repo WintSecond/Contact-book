@@ -1,4 +1,5 @@
 <?php
+
 function prnt($array)
 {
     echo '<pre>';
@@ -7,13 +8,14 @@ function prnt($array)
 }
 
 if (isset($_POST['id'])) {
+    
     $contacts = json_decode(file_get_contents('contacts.json'), true);
     
-    $newConctacts = [];
+    $newContacts = [];
 
     foreach($contacts['contacts'] as $item) {
         if ($item['id'] != $_POST['id']) {
-            $newConctacts[] = $item;
+            $newContacts[] = $item;
         }
     }
 
